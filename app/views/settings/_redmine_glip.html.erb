@@ -1,0 +1,13 @@
+<p>
+  <%= content_tag(:label, l(:glip_settings_label_url)) %>
+  <%= text_field_tag 'settings[glip_url]', @settings[:glip_url], :style => 'width:95%' %>
+</p>
+
+<p>
+ <a href="https://glip.com" target="_blank">Glip</a> webhook URL from the integrations panel.
+</p>
+
+<p>
+  <%= content_tag(:label, l(:glip_settings_label_projects)) %>
+  <%= select_tag 'settings[projects][]', project_tree_options_for_select(Project.active, :selected => Project.where(:id => @settings[:projects])), :multiple => true, :size => Project.active.size, :style => 'min-width: 50%;' %>
+</p>

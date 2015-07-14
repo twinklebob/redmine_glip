@@ -1,0 +1,5 @@
+en:
+  glip_settings_header: Glip Plugin Configuration
+  glip_settings_label_url: Glip webhook URL
+  glip_settings_label_projects: Projects
+  field_glip_url: Glip webhook URL
