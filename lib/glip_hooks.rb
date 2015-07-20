@@ -13,7 +13,7 @@ class NotificationHook < Redmine::Hook::Listener
     assigned = issue.assigned_to_id.blank? ? "anyone yet" : "#{issue.assigned_to.name}"
     project = issue.project
     tracker = issue.tracker.name.downcase
-    message = "#{user.name} created issue ##{issue.id} (#{tracker}) [#{issue.subject}](#{Setting[:protocol]}://#{Setting.host_name}/issues/#{issue.id}) at [#{project.name}](#{Setting[:protocol]}://#{Setting.host_name}/projects/#{project.name}).\n\nAssigned to: #{assigned}"
+    message = "#{user.name} created issue ##{issue.id} (#{tracker}) [#{issue.subject}](#{Setting[:protocol]}://#{Setting.host_name}/issues/#{issue.id}) at [#{project.name}](#{Setting[:protocol]}://#{Setting.host_name}/projects/#{project.identifier}).\n\nAssigned to: #{assigned}"
     send_message(glip_url(project), "New Issue ##{issue.id}" , message)
   end
 
@@ -26,7 +26,7 @@ class NotificationHook < Redmine::Hook::Listener
     journal = context[:journal]
     notes = journal.notes
     tracker = issue.tracker.name.downcase
-    message = "#{journal.user} edited issue ##{issue.id} (#{tracker}) [#{issue.subject}](#{Setting[:protocol]}://#{Setting.host_name}/issues/#{issue.id}) at [#{project.name}](#{Setting[:protocol]}://#{Setting.host_name}/projects/#{project.name})\n\n#{truncate_words(notes)}"
+    message = "#{journal.user} edited issue ##{issue.id} (#{tracker}) [#{issue.subject}](#{Setting[:protocol]}://#{Setting.host_name}/issues/#{issue.id}) at [#{project.name}](#{Setting[:protocol]}://#{Setting.host_name}/projects/#{project.identifier})\n\n#{truncate_words(notes)}"
     send_message(glip_url(project), "Issue ##{issue.id} updated", message)
   end
 
@@ -38,7 +38,7 @@ class NotificationHook < Redmine::Hook::Listener
     wiki = page.pretty_title
     author = User.current.name
     url = "#{Setting[:protocol]}://#{Setting[:host_name]}/projects/#{page.wiki.project.identifier}/wiki/#{page.title}"
-    message = "#{author} edited [#{project.name}](#{Setting[:protocol]}://#{Setting.host_name}/projects/#{project.name}) wiki page [#{wiki}](#{url})"
+    message = "#{author} edited [#{project.name}](#{Setting[:protocol]}://#{Setting.host_name}/projects/#{project.identifier}) wiki page [#{wiki}](#{url})"
     send_message(glip_url(project), "#{project.name} wiki page #{wiki} updated", message)
   end
 
