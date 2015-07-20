@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require 'glip'
+require 'Glip'
 
 class NotificationHook < Redmine::Hook::Listener
 
@@ -62,7 +62,7 @@ class NotificationHook < Redmine::Hook::Listener
 
   def send_message(glip_url, title, message)
     begin
-      room = glip::Room.new({:full_url => glip_url})
+      room = Glip::Room.new({:full_url => glip_url})
       room.post({:title => title, :body => message})
     rescue => e
       Rails.logger.error "Error when trying to send message to glip: #{e.message}"
