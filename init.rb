@@ -3,7 +3,7 @@ Redmine::Plugin.register :redmine_glip do
   author 'David Lumm'
   description 'Sends notifications to Glip.'
   version '0.0.1'
-  url 'https://github.com/twinklebob/redmine_kato'
+  url 'https://github.com/twinklebob/redmine_glip'
   author_url 'https://github.com/twinklebob/'
 
   Rails.configuration.to_prepare do
