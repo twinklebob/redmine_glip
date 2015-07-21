@@ -9,7 +9,7 @@ Redmine::Plugin.register :redmine_glip do
   Rails.configuration.to_prepare do
     require_dependency 'glip_hooks'
     require_dependency 'glip_view_hooks'
-    require_dependency 'project_patch'
+    require_dependency 'glip_project_patch'
     Project.send(:include, RedmineGlip::Patches::ProjectPatch)
   end
 
