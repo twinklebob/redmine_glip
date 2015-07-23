@@ -30,3 +30,7 @@ then run
 In Redmine go to the Plugin page in the Adminstration area and configure Glip plugin using webhook URL - you can find it at [Glip](https://Glip.com) (go to the integration panel and click on Webhook icon).
 
 Based on [redmine_kato](https://github.com/kato-im/redmine_kato) in turn based on [redmine_hipchat](https://github.com/hipchat/redmine_hipchat)
+
+## Say thanks
+
+Feel free to buy me a nice cup of tea or something. I accept tips through http://CyberneticDave.tip.me
