@@ -2,7 +2,7 @@
 
 require 'glip'
 
-class NotificationHook < Redmine::Hook::Listener
+class GlipNotificationHook < Redmine::Hook::Listener
 
   def controller_issues_new_after_save(context={ })
     project = context[:project]
